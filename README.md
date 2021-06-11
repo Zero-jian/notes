@@ -16,7 +16,7 @@
 * npm安装包提示格式出错，可能是因为复制的包文字格式不同
 
 
-### vscode插件配置
+### 3. vscode插件配置
 * 文件头部注释
 * 代码格式化
 * 代码静态化检测
@@ -49,6 +49,7 @@
 
 ### 代码片段
 * tbody内容溢出滚动：
+
 `
 tbody { 				
   display: block;
@@ -68,4 +69,5 @@ thead {
 table thead th {
   background: #ccc;
 }
+
 `
