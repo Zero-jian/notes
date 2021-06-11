@@ -69,5 +69,4 @@ thead {
 table thead th {
   background: #ccc;
 }
-
 `
