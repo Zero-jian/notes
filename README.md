@@ -38,9 +38,28 @@
 * 查看分支关联 => git branch -vv
 
 
+### 6. git pull拉取文件冲突
+* git stash => 暂存本地代码
+* git pull =>  拉取线上代码
+* git stash pop => 还原暂存内容
+* 代码自动合并，通过vsCode手动取舍冲突代码
+
+### 7. 响应式和自适应的区别
+* 响应式 => 页面在不同的屏幕尺寸下,都有良好的布局和内容表现，适配多种不同尺寸的屏幕，,例如pc端显示的页面转到移动端就叫响应式
+* 自适应 => 页面的设计与设计稿的设计比例一致
+
+
+### 8. 项目图片处理
+* 采用两倍图，适应高清屏
+* 懒加载，加快页面载入速度
+* 上线前压缩图片
+* 懒加载图片加载时页面高度会发生变化，这时候可以预先计算并设置图片高度，避免页面高度忽变
+
+
 ### 知识点总结
 * axios取消请求 => 请求超时 或者 切换页面的时候使用
 * vue-promised => vue加载内容的提示库 => 加载的时候可以显示loading图标
+* 自适应 => 标准设计图以375px为标准，使用rem自适应，把body设置成100px，转换rem方便计算
 
 
 ### 问题总结
@@ -51,22 +70,20 @@
 * tbody内容溢出滚动：
 
 `
-tbody { 				
-  display: block;
-  height: 80px;
-  overflow-y: scroll;
-  overflow-x: hidden;
+table, thead, tbody {
+  display: block;
 }
-thead,tr {
-  display: table;
-  width: 100%;
-  table-layout: fixed;
+thead, tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
 }
- /*关键设置：滚动条默认宽度是16px 将thead的宽度减16px*/
-thead {
-  width: calc(100% - 1em);
+tbody {
+  height: 100px;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
-table thead th {
-  background: #ccc;
+thead {
+  width: calc(100% - 10px)
 }
 `
