@@ -55,8 +55,41 @@
 * 上线前压缩图片
 * 懒加载图片加载时页面高度会发生变化，这时候可以预先计算并设置图片高度，避免页面高度忽变
 
+
 ### 9. webpack知识点
 * entry => 编译入口文件、公共文件(common.js)
+
+
+### 10. 引入字体知识点
+* 优先推荐使用系统自带字体
+* pc端使用系统自带字体，若该系统不存在该字体则使用默认字体，移动端不存在该情况
+例如：font-family：'微软雅黑'
+若pc端浏览器不存在微软雅黑字体，则会默认使用宋体
+* 使用自定义字体需要引入多种格式的字体(.eot/.woff/.woff2/.ttf)，已应对兼容性问题
+* 从服务器引用自定义字体可能会存在版权问题
+* 引用字体过大，可能会造成页面加载过慢，会看到页面字体的变化，可使用遮罩层掩盖
+* 可以引用多种字体，然后针对性使用字体
+* 可以使用字蛛(font-spider)可以只导入使用的字体，从而压缩字体大小
+* 方案一：简易方案 => 引入字体会导致页面加载过慢，可以在首先在body上设置font-family默认字体，在从script里动态设置引入的页面字体，增加了页面的加载速度。
+缺点是页面会出现字体的变化
+* 方案二：最优方案 => 检测该浏览器是否支持指定系统字体，若不支持则导入自定义指定字体。
+判断浏览器是否支持该字体 => https://www.zhangxinxu.com/wordpress/2018/02/js-detect-suppot-font-family/
+动态创建link引入css文件
+
+
+### 11. Vue页面执行顺序
+* 页面 => beforeCreate -> state(data, computed, methods) -> created -> beforeMounte -> mounted -> watch
+* 页面加载 => watch(immediate：true) -> computed -> mounted -> watch(默认,在页面加载后才调用)
+* 父子组件 => beforeCreate(父) -> created(父) -> beforeMounte(父) -> beforeCreate(子) -> created(子) -> beforeMounte(子) -> mounted(子) -> created(父)
+
+
+### 12. scoped和module的区别
+* scoped => 在class上添加hash标识属性，在vue组件里的每个元素都拥有同一个hash标识属性，无法避免权重和类名重复的问题
+* module => 生成独一无二的class，为所有类名重新生成，有效避免权重和类名重复的问题
+* 如果子组件有一个类名在父组件上已经定义过，那么使用scoped，会泄露样式到子组件中，但module可以有效避免这个问题
+* 还有一些情况，父组件需要修改子组件的样式，使用scoped可以使用/deep/和>>>来实现，但这就失去了组件样式封装的意义了，并且子组件的所有相同样式都会被影响到，
+使用module可以通过$style对象获取样式，然后通过props传递，这样能有效保持组件样式封装，并且成功修改样式
+
 
 ### 知识点总结
 * axios取消请求 => 请求超时 或者 切换页面的时候使用
