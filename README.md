@@ -35,7 +35,8 @@
 * 创建新分支 => git checkout -b <name>
 * 上传远程分支 => git push origin <name>
 * 此时创建的分支存在本地和远程，需要把本地和远程分支关联起来 git branch --set-upstream-to=origin/<name>
-* 查看分支关联 => git branch -vv
+* 查看分支关联 => git branch -vv / git remote show origin
+* 在指定分支上创建新分支并上传，即可自动关联新旧分支
 
 
 ### 6. git pull拉取文件冲突
@@ -96,6 +97,16 @@
 * vue-promised => vue加载内容的提示库 => 加载的时候可以显示loading图标
 * 自适应 => 标准设计图以375px为标准，使用rem自适应，把body设置成100px，转换rem方便计算
 
+
+### 小程序知识点总结
+* 公众号跳转小程序，需要关联，一个公众号只能关联三个小程序
+* 小程序的AppId在微信公众平台上需要创建小程序应用后才能生成
+* 可以在上面管理开发人员
+
+
+### git知识点总结
+* git remote show origin => 可以查看项目全部分支的关联情况
+* git checkout -b <name> => 创建并切换该分支
 
 ### 问题总结
 * ios上overflow: hidden和position不能共用，否则overflow会失效
