@@ -92,6 +92,44 @@
 使用module可以通过$style对象获取样式，然后通过props传递，这样能有效保持组件样式封装，并且成功修改样式
 
 
+### 13. 解决本地网页请求接口出现的跨域问题
+* 启动node服务器，网页请求本地服务器接口，再通过本地服务器接口请求其他服务器的接口
+* 启动webpack-dev-server服务，并配置代理
+
+### 14. node-sass插件安装
+* 配置node-sass的淘宝镜像地址
+* node-sass要与node.js版本相匹配
+
+### 15. proxy监听属性的变化，可以实现数据实时监听后执行回调
+
+### 16. eslint + prettier + husky + lint-staged + .editorconfig
+* eslint用于检验代码，npm包安装eslint，在.eslintrc.js上配置规则
+* 实时检测需要在vsCode上安装eslint插件，并在setting.json上配置规则
+* .eslintrc.js上的规则优先级高于setting.json上的规则
+* prettier用于格式化代码，npm包安装prettier，在.prettierrc.js上配置规则
+* 自动保存需要在vsCode上安装prettier插件，并在setting.json上配置规则
+* .prettierrc.js上的规格优先级高于setting.json上的规则
+* eslint和prettier配置规则会出现冲突，所以需要安装其他插件来兼容
+* 完成检验代码和格式化代码后，需要在上传代码的时候进行检查把关，避免把不规范代码上传
+* husky为git增加hook，设置commit钩子执行插件
+* lint-staged设置执行动作，commit识先格式化代码再eslint检查，通过则上传，反之拦截
+* .editorconfig设置编辑器输入配置
+* 参考文章 https://www.jianshu.com/p/5ab7b4b48964
+* 参考项目配置 https://github.com/toFrankie/wechat_applet_demo
+* 参考安装包
+```
+  "babel-eslint": "10.0.3",
+  "eslint": "6.7.1",
+  "eslint-config-alloy": "3.7.1",
+  "eslint-config-prettier": "6.10.0",
+  "eslint-plugin-prettier": "3.1.4",
+  "husky": "4.3.0",
+  "lint-staged": "10.3.0",
+  "npm-run-all": "4.1.5",
+  "prettier": "2.0.5",
+  "prettier-eslint-cli": "5.0.0"
+```
+
 ### 知识点总结
 * axios取消请求 => 请求超时 或者 切换页面的时候使用
 * vue-promised => vue加载内容的提示库 => 加载的时候可以显示loading图标
