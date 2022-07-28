@@ -102,7 +102,8 @@
 
 ### 15. proxy监听属性的变化，可以实现数据实时监听后执行回调
 
-### 16. eslint + prettier + husky + lint-staged + .editorconfig
+### 16. eslint + prettier + husky + lint-staged + stylelint + .editorconfig
+* eslint用于检测js，stylelint用户检测css
 * eslint用于检验代码，npm包安装eslint，在.eslintrc.js上配置规则
 * 实时检测需要在vsCode上安装eslint插件，并在setting.json上配置规则
 * .eslintrc.js上的规则优先级高于setting.json上的规则
@@ -111,8 +112,9 @@
 * .prettierrc.js上的规格优先级高于setting.json上的规则
 * eslint和prettier配置规则会出现冲突，所以需要安装其他插件来兼容
 * 完成检验代码和格式化代码后，需要在上传代码的时候进行检查把关，避免把不规范代码上传
+* stylelint用于检测和修复css代码风格，在.stylelintrc上配置规则
 * husky为git增加hook，设置commit钩子执行插件
-* lint-staged设置执行动作，commit识先格式化代码再eslint检查，通过则上传，反之拦截
+* lint-staged设置执行动作，commit识先格式化代码再eslint，stylelint检查，通过则上传，反之拦截
 * .editorconfig设置编辑器输入配置
 * 参考文章 https://www.jianshu.com/p/5ab7b4b48964
 * 参考项目配置 https://github.com/toFrankie/wechat_applet_demo
