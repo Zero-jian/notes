@@ -148,6 +148,7 @@
 * git remote show origin => 可以查看项目全部分支的关联情况
 * git checkout -b <name> => 创建并切换该分支
 
+
 ### 问题总结
 * ios上overflow: hidden和position不能共用，否则overflow会失效
 * v-html渲染的文本节点无法修改样式，可以通过单独的style里面编写样式
@@ -173,3 +174,7 @@ thead {
   width: calc(100% - 10px)
 }
 `
+
+### nvm问题总结
+* nvm下载的node版本无法使用，可能跟nvm的版本有关，在github上下载更新包更新版本即可
+* 更新版本后nvm无法切换node版本，跟权限有关，用管理员权限切换即可
